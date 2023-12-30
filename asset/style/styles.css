@@ -1,0 +1,2259 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: "DistilleryDisplay";
+  src: url(../font/static/DistilleryDisplay.ttf);
+}
+
+@font-face {
+  font-family: "Moby Dick";
+  src: url(../font/static/MobyDIck.ttf);
+}
+
+a {
+  text-decoration: none;
+}
+
+::-webkit-scrollbar {
+  width: 0.3rem;
+  border-radius: 1rem;
+}
+
+::-webkit-scrollbar-track {
+  background: #000000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #443ba4;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: linear-gradient(#061a2b 20%, #000000 80%);
+  color: #fff0f8;
+}
+
+/* Menù*/
+.menu-wrap {
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+  z-index: 1;
+}
+
+.menu-wrap .toggler {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 2;
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  opacity: 0;
+}
+
+.menu-wrap .hamburger {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1;
+  width: 60px;
+  height: 60px;
+  padding: 1rem;
+  background:  #171a2100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Hamburger Line */
+.menu-wrap .hamburger > div {
+  position: relative;
+  flex: none;
+  width: 100%;
+  height: 2px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s ease;
+}
+
+/* Hamburger Lines - Top & Bottom */
+.menu-wrap .hamburger > div::before,
+.menu-wrap .hamburger > div::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: -10px;
+  width: 100%;
+  height: 2px;
+  background: inherit;
+}
+
+/* Moves Line Down */
+.menu-wrap .hamburger > div::after {
+  top: 10px;
+}
+
+/* Toggler Animation */
+.menu-wrap .toggler:checked + .hamburger > div {
+  transform: rotate(135deg);
+}
+
+/* Turns Lines Into X */
+.menu-wrap .toggler:checked + .hamburger > div:before,
+.menu-wrap .toggler:checked + .hamburger > div:after {
+  top: 0;
+  transform: rotate(90deg);
+}
+
+/* Rotate On Hover When Checked */
+.menu-wrap .toggler:checked:hover + .hamburger > div {
+  transform: rotate(225deg);
+}
+
+/* Show Menu */
+.menu-wrap .toggler:checked ~ .menu {
+  visibility: visible;
+}
+
+.menu-wrap .toggler:checked ~ .menu > div {
+  transform: scale(1);
+  transition-duration: 1.5s;
+}
+
+.menu-wrap .toggler:checked ~ .menu > div > div {
+  opacity: 1;
+  transition: opacity 0.4s ease 0.4s;
+}
+
+.menu-wrap .menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  visibility: hidden;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu-wrap .menu > div {
+  background: #f62a3bb9;
+  border-radius: 50%;
+  width: 200vw;
+  height: 200vw;
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  transform: scale(0);
+  transition: all 0.4s ease;
+}
+
+.menu-wrap .menu > div > div {
+  text-align: center;
+  max-width: 90vw;
+  max-height: 100vh;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.menu-wrap .menu > div > div > ul > li {
+  list-style: none;
+  color: #b6ccd7;
+  font-family: DistilleryDisplay;
+  letter-spacing: 0.5rem;
+  font-weight: 700;
+  font-size: 2.5rem;
+  text-shadow: 5px 5px 5px #171a21;
+  padding: 1rem;
+}
+
+.menu-wrap .menu > div > div > ul > li > a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.4s ease;
+}
+
+.menu-wrap .menu > div > div > ul > li > a:hover {
+  color: #ffb900;
+  transition: 1s;
+}
+
+#container-hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#section-logo {
+  width: 7rem;
+  position: fixed;
+  top: 2rem;
+  left: 2rem;
+  z-index: 1;
+}
+
+#bussola {
+  width: 100%;
+  animation: rotate 15s linear infinite;
+}
+
+@keyframes rotate {
+  0% {
+      transform: rotate(0deg);
+  }
+  100% {
+      transform: rotate(360deg); /* Ruota di 360 gradi, ma puoi impostare qualsiasi valore desiderato */
+  }
+}
+
+#section-1 {
+  margin-top: 1rem;
+  width: 45rem;
+  perspective: 900px;
+}
+
+#moby-dick-hero {
+  width: 100%;
+}
+
+#section-2 {
+  margin-top: 5rem;
+  width: 8rem;
+  height: 30rem;
+}
+
+#melville-hero {
+  width: 100%;
+}
+
+
+#container-2 {
+  display: flex;
+  margin-top: 13rem;
+}
+
+#section-4 {
+  width: 20%;
+  height: 30rem;
+  margin-left: 3rem;
+  /*z-index: -99;*/
+}
+
+#ancora {
+  width: 100%;
+}
+
+#section-5 {
+  width: 55%;
+  height: 30rem;
+  padding: 3rem;
+}
+
+#vivi-la-leggenda {
+  font-size: 3.5rem;
+  font-family: DistilleryDisplay;
+  letter-spacing: 0.5rem;
+  font-weight: 400;
+  color: #b6ccd7;
+}
+
+#p-vivi-la-leggenda {
+  font-size: 1.3rem;
+  font-family: Moby Dick;
+  letter-spacing: 0.3rem;
+  font-weight: 300;
+  color: #b6ccd7;
+}
+
+#section-6 {
+  margin-top: 6rem;
+  width: 27%;
+  height: 1rem;
+}
+
+#hr-1 {
+  border: 1px solid #f62a3bcc;
+  margin-left: -11rem;
+}
+
+#bollicine-1 {
+  margin-top: 10rem;
+  width: 50%;
+  animation: scrollUp 12s linear infinite;
+}
+
+@keyframes scrollUp {
+  0% {
+      transform: translateY(100vh); /* Posizione iniziale fuori dalla visualizzazione in basso */
+  }
+  100% {
+      transform: translateY(-100%); /* Posizione finale sopra la visualizzazione */
+  }
+}
+
+#scrollingDiv {
+  width: 15%;
+  position: fixed;
+  top: 30%;
+  right: -200px; /* Posiziona il div fuori dalla visualizzazione iniziale */
+  transform: translateY(-50%);
+  padding: 10px;
+  transition: right 0.2s; /* Aggiunge una transizione per un effetto di scorrimento più fluido */
+  z-index: -99;
+}
+
+#pesciolini {
+  width: 100%;
+}
+
+#container-3 {
+  display: flex;
+  margin-top: 12rem;
+}
+
+#section-7 {
+  margin-top: 6rem;
+  width: 27%;
+  height: 1rem;
+}
+
+#hr-2 {
+  border: 1px solid #f62a3bcc;
+  margin-right: -4rem;
+}
+
+#bollicine-2 {
+  width: 30%;
+  margin-top: 7rem;
+  margin-left: 5rem;
+  animation: scrollUp 12s linear infinite;
+}
+
+@keyframes scrollUp {
+  0% {
+      transform: translateY(100vh); /* Posizione iniziale fuori dalla visualizzazione in basso */
+  }
+  100% {
+      transform: translateY(-100%); /* Posizione finale sopra la visualizzazione */
+  }
+}
+
+#section-8 {
+  width: 55%;
+  height: 30rem;
+  padding: 3rem;
+}
+
+#di-balene {
+  text-align: right;
+  font-size: 3.5rem;
+  font-family: DistilleryDisplay;
+  letter-spacing: 0.5rem;
+  font-weight: 400;
+  color: #b6ccd7;
+}
+
+#p-di-balene {
+  text-align: right;
+  font-size: 1.3rem;
+  font-family: Moby Dick;
+  letter-spacing: 0.3rem;
+  font-weight: 300;
+  color: #b6ccd7;
+}
+
+#section-9 {
+  width: 20%;
+  height: 30rem;
+  margin-right: 3rem;
+}
+
+#balena {
+  width: 100%;
+}
+
+#scrollingDiv-2 {
+  width: 12%;
+  position: fixed;
+  top: 80%;
+  left: -200px; /* Posiziona il div fuori dalla visualizzazione iniziale */
+  transform: translateY(-50%);
+  padding: 10px;
+  transition: left 0.3s; /* Aggiunge una transizione per un effetto di scorrimento più fluido */
+  z-index: -99;
+}
+
+#container-4 {
+  display: flex;
+  margin-top: 12rem;
+}
+
+#section-10 {
+  width: 25%;
+  height: 20rem;
+  margin-top: 6rem;
+}
+
+#hr-3 {
+  border: 1px solid #f62a3bcc;
+  margin-right: -3rem;
+}
+
+
+#section-11 {
+  width: 50%;
+  height: 30rem;
+  padding: 3rem;
+}
+
+#il-colore {
+  text-align: center;
+  font-size: 3.5rem;
+  font-family: DistilleryDisplay;
+  letter-spacing: 0.5rem;
+  font-weight: 400;
+  color: #b6ccd7;
+}
+
+.colored-letter {
+  color: #ffffffda;
+  text-shadow: 0 0 7px #ffffffda, 0 0 10px #ffffffda, 0 0 21px #ffffffda;
+}
+
+#p-il-colore {
+  text-align: center;
+  font-size: 1.3rem;
+  font-family: Moby Dick;
+  letter-spacing: 0.3rem;
+  font-weight: 300;
+  color: #b6ccd7;
+}
+
+#section-12 {
+  width: 25%;
+  height: 20rem;
+  margin-top: 6rem;
+}
+
+#hr-4 {
+  border: 1px solid #f62a3bcc;
+  margin-left: -3rem;
+}
+
+#medusa {
+  margin-top: 10rem;
+  width: 60%;
+  animation: fluctuate 2s ease-in-out infinite;
+}
+  @keyframes fluctuate {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px); /* Imposta la quantità di fluttuazione in base alle tue preferenze */
+    }
+}
+
+#container-5 {
+  display: flex;
+  margin-top: 14rem;
+}
+
+#section-13 {
+  width: 80%;
+  height: 30rem;
+  background-color: #000000;
+  border-top-right-radius: 4rem;
+  border-bottom-right-radius: 4rem;
+  padding: 4rem;
+  box-shadow: 0px 0px 50px #f62a3bcc;
+}
+
+#h1-libro {
+  text-align: left;
+  font-size: 3.5rem;
+  font-family: DistilleryDisplay;
+  letter-spacing: 0.5rem;
+  font-weight: 400;
+  color: #b6ccd7;
+}
+
+#p-libro {
+  text-align: left;
+  font-size: 1.3rem;
+  font-family: Moby Dick;
+  letter-spacing: 0.3rem;
+  margin-right: 20rem;
+  font-weight: 300;
+  color: #b6ccd7;
+}
+
+#section-inside {
+  width: 15rem;
+  height: 26rem;
+  margin-left: 44rem;
+  margin-top: -20rem;
+  transition: all 0.5s;
+  cursor: pointer;
+}
+
+#section-inside:hover {
+  transform: translateY(-20px);
+}
+
+#copertina {
+  width: 100%;
+}
+
+#container-6 {
+  display: flex;
+  margin-top: 15rem;
+}
+
+#section-14 {
+  width: 30%;
+  margin-top: 12rem;
+}
+
+#arpione {
+  width: 100%;
+}
+
+#section-15 {
+  width: 40%;
+  height: 40rem;
+  padding: 6rem;
+}
+
+#balena-2 {
+  margin-top: 0rem;
+  width: 100%;
+}
+
+#section-16 {
+  width: 30%;
+  margin-top: 12rem;
+}
+
+#footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 11.5rem;
+}
+
+#p-footer {
+  font-size: 1.3rem;
+  font-family: DistilleryDisplay;
+  letter-spacing: 0.5rem;
+  font-weight: 400;
+  color: #E6A343;
+}
+
+#div-alghe {
+  width: 20%;
+}
+
+#alghe {
+  width: 50%;
+}
+
+
+@media only screen and (max-width: 375px) {
+  body {
+    background: linear-gradient(#061a2b 20%, #000000 80%);
+    color: #fff0f8;
+  }
+  
+  /* Menù*/
+  .menu-wrap {
+    position: fixed;
+    top: 2rem;
+    right: 2rem;
+    z-index: 1;
+  }
+  
+  .menu-wrap .toggler {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 2;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    opacity: 0;
+  }
+  
+  .menu-wrap .hamburger {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    width: 60px;
+    height: 60px;
+    padding: 1rem;
+    background:  #171a2100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Hamburger Line */
+  .menu-wrap .hamburger > div {
+    position: relative;
+    flex: none;
+    width: 100%;
+    height: 2px;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s ease;
+  }
+  
+  /* Hamburger Lines - Top & Bottom */
+  .menu-wrap .hamburger > div::before,
+  .menu-wrap .hamburger > div::after {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    top: -10px;
+    width: 100%;
+    height: 2px;
+    background: inherit;
+  }
+  
+  /* Moves Line Down */
+  .menu-wrap .hamburger > div::after {
+    top: 10px;
+  }
+  
+  /* Toggler Animation */
+  .menu-wrap .toggler:checked + .hamburger > div {
+    transform: rotate(135deg);
+  }
+  
+  /* Turns Lines Into X */
+  .menu-wrap .toggler:checked + .hamburger > div:before,
+  .menu-wrap .toggler:checked + .hamburger > div:after {
+    top: 0;
+    transform: rotate(90deg);
+  }
+  
+  /* Rotate On Hover When Checked */
+  .menu-wrap .toggler:checked:hover + .hamburger > div {
+    transform: rotate(225deg);
+  }
+  
+  /* Show Menu */
+  .menu-wrap .toggler:checked ~ .menu {
+    visibility: visible;
+  }
+  
+  .menu-wrap .toggler:checked ~ .menu > div {
+    transform: scale(1);
+    transition-duration: 1.5s;
+  }
+  
+  .menu-wrap .toggler:checked ~ .menu > div > div {
+    opacity: 1;
+    transition: opacity 0.4s ease 0.4s;
+  }
+  
+  .menu-wrap .menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    visibility: hidden;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .menu-wrap .menu > div {
+    background: #f62a3bb9;
+    border-radius: 50%;
+    width: 200vw;
+    height: 200vw;
+    display: flex;
+    flex: none;
+    align-items: center;
+    justify-content: center;
+    transform: scale(0);
+    transition: all 0.4s ease;
+  }
+  
+  .menu-wrap .menu > div > div {
+    text-align: center;
+    max-width: 100vw;
+    max-height: 100vh;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+  
+  .menu-wrap .menu > div > div > ul > li {
+    list-style: none;
+    color: #b6ccd7;
+    font-family: DistilleryDisplay;
+    letter-spacing: 0.5rem;
+    font-weight: 700;
+    font-size: 2rem;
+    text-shadow: 5px 5px 5px #171a21;
+    padding: 1rem;
+  }
+  
+  .menu-wrap .menu > div > div > ul > li > a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.4s ease;
+  }
+  
+  .menu-wrap .menu > div > div > ul > li > a:hover {
+    color: #ffb900;
+    transition: 1s;
+  }
+  
+  #container-hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  #section-logo {
+    width: 15%;
+    position: fixed;
+    top: 2rem;
+    left: 2rem;
+    z-index: 1;
+  }
+  
+  #bussola {
+    width: 100%;
+    animation: rotate 15s linear infinite;
+  }
+  
+  @keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg); /* Ruota di 360 gradi, ma puoi impostare qualsiasi valore desiderato */
+    }
+  }
+  
+  #section-1 {
+    margin-top: 12rem;
+    width: 100%;
+  }
+  
+  #moby-dick-hero {
+    width: 100%;
+  }
+  
+  #section-2 {
+    display: none;
+    margin-top: 5rem;
+    width: 8rem;
+    height: 30rem;
+  }
+  
+  #melville-hero {
+    width: 100%;
+  }
+  
+  
+  #container-2 {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    text-align: center;
+    margin-top: 16rem;
+  }
+  
+  #section-4 {
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    width: 100%;
+    margin-top: 2rem;
+    /*z-index: -99;*/
+  }
+  
+  #ancora {
+    width: 50%;
+  }
+  
+  #section-5 {
+    width: 100%;
+    height: 37rem;
+    margin-right: auto;
+    margin-left: auto;
+    
+  }
+  
+  #vivi-la-leggenda {
+    font-size: 3.5rem;
+    font-family: DistilleryDisplay;
+    font-weight: 400;
+    color: #b6ccd7;
+  }
+  
+  #p-vivi-la-leggenda {
+    font-size: 1.3rem;
+    font-family: Moby Dick;
+    font-weight: 300;
+    color: #b6ccd7;
+  }
+  
+  #section-6 {
+    margin-bottom: -13rem;
+    width: 100%;
+    height: 1rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+  
+  #hr-1 {
+    border: 1px solid #f62a3bcc;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  #bollicine-1 {
+    margin-top: 10rem;
+    width: 20%;
+    animation: scrollUp 12s linear infinite;
+  }
+  
+  @keyframes scrollUp {
+    0% {
+        transform: translateY(100vh); /* Posizione iniziale fuori dalla visualizzazione in basso */
+    }
+    100% {
+        transform: translateY(-100%); /* Posizione finale sopra la visualizzazione */
+    }
+  }
+  
+  #scrollingDiv {
+    width: 35%;
+    position: fixed;
+    top: 30%;
+    right: -200px; /* Posiziona il div fuori dalla visualizzazione iniziale */
+    transform: translateY(-50%);
+    padding: 10px;
+    transition: right 3s; /* Aggiunge una transizione per un effetto di scorrimento più fluido */
+    z-index: -99;
+  }
+  
+  #pesciolini {
+    width: 100%;
+  }
+  
+  #container-3 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    margin-top: 11rem;
+  }
+  
+  #section-7 {
+    margin-bottom: -12rem;
+    width: 100%;
+    height: 1rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+  
+  #hr-2 {
+    border: 1px solid #f62a3bcc;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  
+  #bollicine-2 {
+    width: 20%;
+    margin-top: 7rem;
+    margin-left: 5rem;
+    animation: scrollUp 12s linear infinite;
+  }
+  
+  @keyframes scrollUp {
+    0% {
+        transform: translateY(100vh); /* Posizione iniziale fuori dalla visualizzazione in basso */
+    }
+    100% {
+        transform: translateY(-100%); /* Posizione finale sopra la visualizzazione */
+    }
+  }
+  
+  #section-8 {
+    width: 95%;
+    height: 30rem;
+    padding: 1rem;
+  }
+  
+  #di-balene {
+    text-align: center;
+    font-size: 3rem;
+    font-family: DistilleryDisplay;
+    letter-spacing: 0.3rem;
+    font-weight: 400;
+    color: #b6ccd7;
+  }
+  
+  #p-di-balene {
+    text-align: center;
+    font-size: 1.3rem;
+    font-family: Moby Dick;
+    letter-spacing: 0.4rem;
+    font-weight: 300;
+    color: #b6ccd7;
+  }
+  
+  #section-9 {
+    display: block;
+    width: 60%;
+    height: 30rem;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 7rem;
+  }
+  
+  #balena {
+    width: 100%;
+  }
+  
+  #scrollingDiv-2 {
+    width: 25%;
+    position: fixed;
+    top: 80%;
+    left: -200px; /* Posiziona il div fuori dalla visualizzazione iniziale */
+    transform: translateY(-50%);
+    padding: 10px;
+    transition: left 3s; /* Aggiunge una transizione per un effetto di scorrimento più fluido */
+    z-index: -99;
+  }
+  
+  #container-4 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    margin-top: 10rem;
+  }
+  
+  #section-10 {
+    width: 100%;
+    height: 5rem;
+    margin-bottom: -18rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+  
+  #hr-3 {
+    border: 1px solid #f62a3bcc;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  
+  #section-11 {
+    width: 100%;
+    height: 30rem;
+  }
+  
+  #il-colore {
+    text-align: center;
+    font-size: 3rem;
+    font-family: DistilleryDisplay;
+    letter-spacing: 0.3rem;
+    font-weight: 400;
+    color: #b6ccd7;
+  }
+  
+  .colored-letter {
+    color: #ffffffda;
+    text-shadow: 0 0 7px #ffffffda, 0 0 10px #ffffffda, 0 0 21px #ffffffda;
+  }
+  
+  #p-il-colore {
+    text-align: center;
+    font-size: 1.3rem;
+    font-family: Moby Dick;
+    letter-spacing: 0.4rem;
+    font-weight: 300;
+    color: #b6ccd7;
+  }
+  
+  #section-12 {
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    width: 60%;
+    height: 20rem;
+    margin-top: 13rem;
+  }
+  
+  #hr-4 {
+    display: none;
+    border: 1px solid #f62a3bcc;
+    margin-left: -2rem;
+  }
+  
+  #medusa {
+    margin-top: 0rem;
+    width: 100%;
+    animation: fluctuate 2s ease-in-out infinite;
+  }
+    @keyframes fluctuate {
+      0%, 100% {
+          transform: translateY(0);
+      }
+      50% {
+          transform: translateY(-20px); /* Imposta la quantità di fluttuazione in base alle tue preferenze */
+      }
+  }
+  
+  #container-5 {
+    display: block;
+    margin-top: 14rem;
+  }
+  
+  #section-13 {
+    width: 85%;
+    height: 59rem;
+    background-color: #000000;
+    border-radius: 4rem;
+    padding: 2rem;
+    margin-right: auto;
+    margin-left: auto;
+    box-shadow: 0px 0px 50px #f62a3bcc;
+  }
+  
+  #h1-libro {
+    text-align: center;
+    font-size: 3rem;
+    font-family: DistilleryDisplay;
+    letter-spacing: 0.3rem;
+    font-weight: 400;
+    color: #b6ccd7;
+    margin-top: 0.5rem;
+  }
+  
+  #p-libro {
+    text-align: center;
+    font-size: 1.2rem;
+    font-family: Moby Dick;
+    letter-spacing: 0.4rem;
+    font-weight: 300;
+    color: #b6ccd7;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 0.5rem;
+  }
+  
+  #section-inside {
+    width: 13rem;
+    height: 7rem;
+    margin-top: 3rem;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  
+  #section-inside:hover {
+    transform: translateY(-20px);
+  }
+  
+  #copertina {
+    width: 100%;
+  }
+  
+  #container-6 {
+    display: flex;
+    margin-top: 10rem;
+  }
+  
+  #section-14 {
+    width: 25%;
+    margin-top: 12rem;
+  }
+  
+  #arpione {
+    width: 100%;
+  }
+  
+  #section-15 {
+    width: 50%;
+    height: 30rem;
+    padding: 0rem;
+  }
+  
+  #balena-2 {
+    margin-top: 8rem;
+    width: 100%;
+  }
+  
+  #section-16 {
+    width: 25%;
+    margin-top: 12rem;
+  }
+  
+  #footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 6.8rem;
+    margin-top: 5rem;
+  }
+  
+  #p-footer {
+    font-size: 1rem;
+    font-family: DistilleryDisplay;
+    letter-spacing: 0.5rem;
+    font-weight: 400;
+    color: #b6ccd7;
+  }
+  
+  #div-alghe {
+    width: 20%;
+  }
+  
+  #alghe {
+    width: 70%;
+  }
+}
+
+
+
+
+@media only screen and (max-width: 480px) {
+  body {
+    background: linear-gradient(#061a2b 20%, #000000 80%);
+    color: #fff0f8;
+  }
+  
+  /* Menù*/
+  .menu-wrap {
+    position: fixed;
+    top: 2rem;
+    right: 2rem;
+    z-index: 1;
+  }
+  
+  .menu-wrap .toggler {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 2;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    opacity: 0;
+  }
+  
+  .menu-wrap .hamburger {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    width: 60px;
+    height: 60px;
+    padding: 1rem;
+    background:  #171a2100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Hamburger Line */
+  .menu-wrap .hamburger > div {
+    position: relative;
+    flex: none;
+    width: 100%;
+    height: 2px;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s ease;
+  }
+  
+  /* Hamburger Lines - Top & Bottom */
+  .menu-wrap .hamburger > div::before,
+  .menu-wrap .hamburger > div::after {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    top: -10px;
+    width: 100%;
+    height: 2px;
+    background: inherit;
+  }
+  
+  /* Moves Line Down */
+  .menu-wrap .hamburger > div::after {
+    top: 10px;
+  }
+  
+  /* Toggler Animation */
+  .menu-wrap .toggler:checked + .hamburger > div {
+    transform: rotate(135deg);
+  }
+  
+  /* Turns Lines Into X */
+  .menu-wrap .toggler:checked + .hamburger > div:before,
+  .menu-wrap .toggler:checked + .hamburger > div:after {
+    top: 0;
+    transform: rotate(90deg);
+  }
+  
+  /* Rotate On Hover When Checked */
+  .menu-wrap .toggler:checked:hover + .hamburger > div {
+    transform: rotate(225deg);
+  }
+  
+  /* Show Menu */
+  .menu-wrap .toggler:checked ~ .menu {
+    visibility: visible;
+  }
+  
+  .menu-wrap .toggler:checked ~ .menu > div {
+    transform: scale(1);
+    transition-duration: 1.5s;
+  }
+  
+  .menu-wrap .toggler:checked ~ .menu > div > div {
+    opacity: 1;
+    transition: opacity 0.4s ease 0.4s;
+  }
+  
+  .menu-wrap .menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    visibility: hidden;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .menu-wrap .menu > div {
+    background: #f62a3bb9;
+    border-radius: 50%;
+    width: 200vw;
+    height: 200vw;
+    display: flex;
+    flex: none;
+    align-items: center;
+    justify-content: center;
+    transform: scale(0);
+    transition: all 0.4s ease;
+  }
+  
+  .menu-wrap .menu > div > div {
+    text-align: center;
+    max-width: 100vw;
+    max-height: 100vh;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+  
+  .menu-wrap .menu > div > div > ul > li {
+    list-style: none;
+    color: #b6ccd7;
+    font-family: DistilleryDisplay;
+    letter-spacing: 0.5rem;
+    font-weight: 700;
+    font-size: 2rem;
+    text-shadow: 5px 5px 5px #171a21;
+    padding: 1rem;
+  }
+  
+  .menu-wrap .menu > div > div > ul > li > a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.4s ease;
+  }
+  
+  .menu-wrap .menu > div > div > ul > li > a:hover {
+    color: #ffb900;
+    transition: 1s;
+  }
+  
+  #container-hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  #section-logo {
+    width: 15%;
+    position: fixed;
+    top: 2rem;
+    left: 2rem;
+    z-index: 1;
+  }
+  
+  #bussola {
+    width: 100%;
+    animation: rotate 15s linear infinite;
+  }
+  
+  @keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg); /* Ruota di 360 gradi, ma puoi impostare qualsiasi valore desiderato */
+    }
+  }
+  
+  #section-1 {
+    margin-top: 12rem;
+    width: 100%;
+  }
+  
+  #moby-dick-hero {
+    width: 100%;
+  }
+  
+  #section-2 {
+    display: none;
+    margin-top: 5rem;
+    width: 8rem;
+    height: 30rem;
+  }
+  
+  #melville-hero {
+    width: 100%;
+  }
+  
+  
+  #container-2 {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    text-align: center;
+    margin-top: 16rem;
+  }
+  
+  #section-4 {
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    width: 60%;
+    /*z-index: -99;*/
+  }
+  
+  #ancora {
+    width: 100%;
+  }
+  
+  #section-5 {
+    width: 100%;
+    height: 37rem;
+    margin-right: auto;
+    margin-left: auto;
+    
+  }
+  
+  #vivi-la-leggenda {
+    font-size: 3rem;
+    font-family: DistilleryDisplay;
+    font-weight: 400;
+    color: #E6A343;
+  }
+  
+  #p-vivi-la-leggenda {
+    font-size: 1.3rem;
+    font-family: Moby Dick;
+    font-weight: 300;
+    color: #b6ccd7;
+  }
+  
+  #section-6 {
+    width: 100%;
+    height: 1rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+  
+  #hr-1 {
+    display: none;
+    border: 1px solid #f62a3bcc;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  #bollicine-1 {
+    margin-top: 10rem;
+    width: 20%;
+    animation: scrollUp 12s linear infinite;
+  }
+  
+  @keyframes scrollUp {
+    0% {
+        transform: translateY(100vh); /* Posizione iniziale fuori dalla visualizzazione in basso */
+    }
+    100% {
+        transform: translateY(-100%); /* Posizione finale sopra la visualizzazione */
+    }
+  }
+  
+  #scrollingDiv {
+    width: 35%;
+    position: fixed;
+    top: 30%;
+    right: -200px; /* Posiziona il div fuori dalla visualizzazione iniziale */
+    transform: translateY(-50%);
+    padding: 10px;
+    transition: right 3s; /* Aggiunge una transizione per un effetto di scorrimento più fluido */
+    z-index: -99;
+  }
+  
+  #pesciolini {
+    width: 100%;
+  }
+  
+  #container-3 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    margin-top: 10rem;
+  }
+  
+  #section-7 {
+    margin-bottom: -14rem;
+    width: 100%;
+    height: 1rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+  
+  #hr-2 {
+    border: 1px solid #ef2af6cc;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  
+  #bollicine-2 {
+    width: 20%;
+    margin-top: 7rem;
+    margin-left: 5rem;
+    animation: scrollUp 12s linear infinite;
+  }
+  
+  @keyframes scrollUp {
+    0% {
+        transform: translateY(100vh); /* Posizione iniziale fuori dalla visualizzazione in basso */
+    }
+    100% {
+        transform: translateY(-100%); /* Posizione finale sopra la visualizzazione */
+    }
+  }
+  
+  #section-8 {
+    width: 100%;
+    height: 30rem;
+  }
+  
+  #di-balene {
+    text-align: center;
+    font-size: 3rem;
+    font-family: DistilleryDisplay;
+    letter-spacing: 0.3rem;
+    font-weight: 400;
+    color: #b6ccd7;
+  }
+  
+  #p-di-balene {
+    text-align: center;
+    font-size: 1.3rem;
+    font-family: Moby Dick;
+    font-weight: 300;
+    color: #b6ccd7;
+  }
+  
+  #section-9 {
+    display: block;
+    width: 60%;
+    height: 30rem;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 7rem;
+  }
+  
+  #balena {
+    width: 100%;
+  }
+  
+  #scrollingDiv-2 {
+    width: 25%;
+    position: fixed;
+    top: 80%;
+    left: -200px; /* Posiziona il div fuori dalla visualizzazione iniziale */
+    transform: translateY(-50%);
+    padding: 10px;
+    transition: left 3s; /* Aggiunge una transizione per un effetto di scorrimento più fluido */
+    z-index: -99;
+  }
+  
+  #container-4 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    margin-top: 10rem;
+  }
+  
+  #section-10 {
+    width: 100%;
+    height: 5rem;
+    margin-bottom: -18rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+  
+  #hr-3 {
+    border: 1px solid #ef2af6cc;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  
+  #section-11 {
+    width: 100%;
+    height: 30rem;
+  }
+  
+  #il-colore {
+    text-align: center;
+    font-size: 3rem;
+    font-family: DistilleryDisplay;
+    letter-spacing: 0.3rem;
+    font-weight: 400;
+    color: #b6ccd7;
+  }
+  
+  .colored-letter {
+    color: #ffffffda;
+    text-shadow: 0 0 7px #ffffffda, 0 0 10px #ffffffda, 0 0 21px #ffffffda;
+  }
+  
+  #p-il-colore {
+    text-align: center;
+    font-size: 1.3rem;
+    font-family: Moby Dick;
+    font-weight: 300;
+    color: #b6ccd7;
+  }
+  
+  #section-12 {
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    width: 60%;
+    height: 20rem;
+    margin-top: 7rem;
+  }
+  
+  #hr-4 {
+    display: none;
+    border: 1px solid #f62a3bcc;
+    margin-left: -2rem;
+  }
+  
+  #medusa {
+    margin-top: 0rem;
+    width: 100%;
+    animation: fluctuate 2s ease-in-out infinite;
+  }
+    @keyframes fluctuate {
+      0%, 100% {
+          transform: translateY(0);
+      }
+      50% {
+          transform: translateY(-20px); /* Imposta la quantità di fluttuazione in base alle tue preferenze */
+      }
+  }
+  
+  #container-5 {
+    display: block;
+    margin-top: 14rem;
+  }
+  
+  #section-13 {
+    width: 85%;
+    height: 59rem;
+    background-color: #000000;
+    border-radius: 4rem;
+    padding: 2rem;
+    margin-right: auto;
+    margin-left: auto;
+    box-shadow: 0px 0px 50px #ef2af6cc;
+  }
+  
+  #h1-libro {
+    text-align: center;
+    font-size: 3rem;
+    font-family: DistilleryDisplay;
+    letter-spacing: 0.3rem;
+    font-weight: 400;
+    color: #b6ccd7;
+    margin-top: 0.5rem;
+  }
+  
+  #p-libro {
+    text-align: center;
+    font-size: 1.2rem;
+    font-family: Moby Dick;
+    font-weight: 300;
+    color: #b6ccd7;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 0.5rem;
+  }
+  
+  #section-inside {
+    width: 13rem;
+    height: 7rem;
+    margin-top: 3rem;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  
+  #section-inside:hover {
+    transform: translateY(-20px);
+  }
+  
+  #copertina {
+    width: 100%;
+  }
+  
+  #container-6 {
+    display: flex;
+    margin-top: 10rem;
+  }
+  
+  #section-14 {
+    width: 25%;
+    margin-top: 12rem;
+  }
+  
+  #arpione {
+    width: 100%;
+  }
+  
+  #section-15 {
+    width: 50%;
+    height: 30rem;
+    padding: 0rem;
+  }
+  
+  #balena-2 {
+    margin-top: 8rem;
+    width: 100%;
+  }
+  
+  #section-16 {
+    width: 25%;
+    margin-top: 12rem;
+  }
+  
+  #footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 6.8rem;
+    margin-top: 5rem;
+  }
+  
+  #p-footer {
+    font-size: 1rem;
+    font-family: DistilleryDisplay;
+    letter-spacing: 0.5rem;
+    font-weight: 400;
+    color: #b6ccd7;
+  }
+  
+  #div-alghe {
+    width: 20%;
+  }
+  
+  #alghe {
+    width: 70%;
+  }
+}
+
+
+
+
+
+@media only screen and (min-width: 1200px){
+  body {
+    background: linear-gradient(#061a2b 20%, #000000 80%);
+    color: #fff0f8;
+  }
+  
+  /* Menù*/
+  .menu-wrap {
+    position: fixed;
+    top: 2rem;
+    right: 2rem;
+    z-index: 1;
+  }
+  
+  .menu-wrap .toggler {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 2;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    opacity: 0;
+  }
+  
+  .menu-wrap .hamburger {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    width: 60px;
+    height: 60px;
+    padding: 1rem;
+    background:  #171a2100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Hamburger Line */
+  .menu-wrap .hamburger > div {
+    position: relative;
+    flex: none;
+    width: 100%;
+    height: 2px;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s ease;
+  }
+  
+  /* Hamburger Lines - Top & Bottom */
+  .menu-wrap .hamburger > div::before,
+  .menu-wrap .hamburger > div::after {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    top: -10px;
+    width: 100%;
+    height: 2px;
+    background: inherit;
+  }
+  
+  /* Moves Line Down */
+  .menu-wrap .hamburger > div::after {
+    top: 10px;
+  }
+  
+  /* Toggler Animation */
+  .menu-wrap .toggler:checked + .hamburger > div {
+    transform: rotate(135deg);
+  }
+  
+  /* Turns Lines Into X */
+  .menu-wrap .toggler:checked + .hamburger > div:before,
+  .menu-wrap .toggler:checked + .hamburger > div:after {
+    top: 0;
+    transform: rotate(90deg);
+  }
+  
+  /* Rotate On Hover When Checked */
+  .menu-wrap .toggler:checked:hover + .hamburger > div {
+    transform: rotate(225deg);
+  }
+  
+  /* Show Menu */
+  .menu-wrap .toggler:checked ~ .menu {
+    visibility: visible;
+  }
+  
+  .menu-wrap .toggler:checked ~ .menu > div {
+    transform: scale(1);
+    transition-duration: 1.5s;
+  }
+  
+  .menu-wrap .toggler:checked ~ .menu > div > div {
+    opacity: 1;
+    transition: opacity 0.4s ease 0.4s;
+  }
+  
+  .menu-wrap .menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    visibility: hidden;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .menu-wrap .menu > div {
+    background: #f62a3bb9;
+    border-radius: 50%;
+    width: 200vw;
+    height: 200vw;
+    display: flex;
+    flex: none;
+    align-items: center;
+    justify-content: center;
+    transform: scale(0);
+    transition: all 0.4s ease;
+  }
+  
+  .menu-wrap .menu > div > div {
+    text-align: center;
+    max-width: 90vw;
+    max-height: 100vh;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+  
+  .menu-wrap .menu > div > div > ul > li {
+    list-style: none;
+    color: #b6ccd7;
+    font-family: DistilleryDisplay;
+    letter-spacing: 0.5rem;
+    font-weight: 700;
+    font-size: 2.5rem;
+    text-shadow: 5px 5px 5px #171a21;
+    padding: 1rem;
+  }
+  
+  .menu-wrap .menu > div > div > ul > li > a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.4s ease;
+  }
+  
+  .menu-wrap .menu > div > div > ul > li > a:hover {
+    color: #ffb900;
+    transition: 1s;
+  }
+  
+  #container-hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  #section-logo {
+    width: 7rem;
+    position: fixed;
+    top: 2rem;
+    left: 2rem;
+    z-index: 1;
+  }
+  
+  #bussola {
+    width: 100%;
+    animation: rotate 15s linear infinite;
+  }
+  
+  @keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg); /* Ruota di 360 gradi, ma puoi impostare qualsiasi valore desiderato */
+    }
+  }
+  
+  #section-1 {
+    margin-top: 1rem;
+    width: 45rem;
+    perspective: 900px;
+  }
+  
+  #moby-dick-hero {
+    width: 100%;
+  }
+  
+  #section-2 {
+    margin-top: 5rem;
+    width: 8rem;
+    height: 30rem;
+  }
+  
+  #melville-hero {
+    width: 100%;
+  }
+  
+  
+  #container-2 {
+    display: flex;
+    margin-top: 13rem;
+  }
+  
+  #section-4 {
+    width: 20%;
+    height: 30rem;
+    margin-left: 3rem;
+    /*z-index: -99;*/
+  }
+  
+  #ancora {
+    width: 100%;
+  }
+  
+  #section-5 {
+    width: 55%;
+    height: 30rem;
+    padding: 3rem;
+  }
+  
+  #vivi-la-leggenda {
+    font-size: 3.5rem;
+    font-family: DistilleryDisplay;
+    letter-spacing: 0.5rem;
+    font-weight: 400;
+    color: #b6ccd7;
+  }
+  
+  #p-vivi-la-leggenda {
+    font-size: 1.3rem;
+    font-family: Moby Dick;
+    letter-spacing: 0.3rem;
+    font-weight: 300;
+    color: #b6ccd7;
+  }
+  
+  #section-6 {
+    margin-top: 6rem;
+    width: 27%;
+    height: 1rem;
+  }
+  
+  #hr-1 {
+    border: 1px solid #ef2af6cc;
+    margin-left: -11rem;
+  }
+  
+  #bollicine-1 {
+    margin-top: 10rem;
+    width: 50%;
+    animation: scrollUp 12s linear infinite;
+  }
+  
+  @keyframes scrollUp {
+    0% {
+        transform: translateY(100vh); /* Posizione iniziale fuori dalla visualizzazione in basso */
+    }
+    100% {
+        transform: translateY(-100%); /* Posizione finale sopra la visualizzazione */
+    }
+  }
+  
+  #scrollingDiv {
+    width: 15%;
+    position: fixed;
+    top: 30%;
+    right: -200px; /* Posiziona il div fuori dalla visualizzazione iniziale */
+    transform: translateY(-50%);
+    padding: 10px;
+    transition: right 0.2s; /* Aggiunge una transizione per un effetto di scorrimento più fluido */
+    z-index: -99;
+  }
+  
+  #pesciolini {
+    width: 100%;
+  }
+  
+  #container-3 {
+    display: flex;
+    margin-top: 12rem;
+  }
+  
+  #section-7 {
+    margin-top: 6rem;
+    width: 27%;
+    height: 1rem;
+  }
+  
+  #hr-2 {
+    border: 1px solid #ef2af6cc;
+    margin-right: -4rem;
+  }
+  
+  #bollicine-2 {
+    width: 30%;
+    margin-top: 7rem;
+    margin-left: 5rem;
+    animation: scrollUp 12s linear infinite;
+  }
+  
+  @keyframes scrollUp {
+    0% {
+        transform: translateY(100vh); /* Posizione iniziale fuori dalla visualizzazione in basso */
+    }
+    100% {
+        transform: translateY(-100%); /* Posizione finale sopra la visualizzazione */
+    }
+  }
+  
+  #section-8 {
+    width: 55%;
+    height: 30rem;
+    padding: 3rem;
+  }
+  
+  #di-balene {
+    text-align: right;
+    font-size: 3.5rem;
+    font-family: DistilleryDisplay;
+    letter-spacing: 0.5rem;
+    font-weight: 400;
+    color: #b6ccd7;
+  }
+  
+  #p-di-balene {
+    text-align: right;
+    font-size: 1.3rem;
+    font-family: Moby Dick;
+    letter-spacing: 0.3rem;
+    font-weight: 300;
+    color: #b6ccd7;
+  }
+  
+  #section-9 {
+    width: 20%;
+    height: 30rem;
+    margin-right: 3rem;
+  }
+  
+  #balena {
+    width: 100%;
+  }
+  
+  #scrollingDiv-2 {
+    width: 12%;
+    position: fixed;
+    top: 80%;
+    left: -200px; /* Posiziona il div fuori dalla visualizzazione iniziale */
+    transform: translateY(-50%);
+    padding: 10px;
+    transition: left 0.3s; /* Aggiunge una transizione per un effetto di scorrimento più fluido */
+    z-index: -99;
+  }
+  
+  #container-4 {
+    display: flex;
+    margin-top: 12rem;
+  }
+  
+  #section-10 {
+    width: 25%;
+    height: 20rem;
+    margin-top: 6rem;
+  }
+  
+  #hr-3 {
+    border: 1px solid #ef2af6cc;
+    margin-right: -3rem;
+  }
+  
+  
+  #section-11 {
+    width: 50%;
+    height: 30rem;
+    padding: 3rem;
+  }
+  
+  #il-colore {
+    text-align: center;
+    font-size: 3.5rem;
+    font-family: DistilleryDisplay;
+    letter-spacing: 0.5rem;
+    font-weight: 400;
+    color: #b6ccd7;
+  }
+  
+  .colored-letter {
+    color: #ffffffda;
+    text-shadow: 0 0 7px #ffffffda, 0 0 10px #ffffffda, 0 0 21px #ffffffda;
+  }
+  
+  #p-il-colore {
+    text-align: center;
+    font-size: 1.3rem;
+    font-family: Moby Dick;
+    letter-spacing: 0.3rem;
+    font-weight: 300;
+    color: #b6ccd7;
+  }
+  
+  #section-12 {
+    width: 25%;
+    height: 20rem;
+    margin-top: 6rem;
+  }
+  
+  #hr-4 {
+    border: 1px solid #ef2af6cc;
+    margin-left: -3rem;
+  }
+  
+  #medusa {
+    margin-top: 10rem;
+    width: 60%;
+    animation: fluctuate 2s ease-in-out infinite;
+  }
+    @keyframes fluctuate {
+      0%, 100% {
+          transform: translateY(0);
+      }
+      50% {
+          transform: translateY(-20px); /* Imposta la quantità di fluttuazione in base alle tue preferenze */
+      }
+  }
+  
+  #container-5 {
+    display: flex;
+    margin-top: 14rem;
+  }
+  
+  #section-13 {
+    width: 80%;
+    height: 30rem;
+    background-color: #000000;
+    border-top-right-radius: 4rem;
+    border-bottom-right-radius: 4rem;
+    padding: 4rem;
+    box-shadow: 0px 0px 50px #ef2af6cc;
+  }
+  
+  #h1-libro {
+    text-align: left;
+    font-size: 3.5rem;
+    font-family: DistilleryDisplay;
+    letter-spacing: 0.5rem;
+    font-weight: 400;
+    color: #b6ccd7;
+  }
+  
+  #p-libro {
+    text-align: left;
+    font-size: 1.3rem;
+    font-family: Moby Dick;
+    letter-spacing: 0.3rem;
+    margin-right: 20rem;
+    font-weight: 300;
+    color: #b6ccd7;
+  }
+  
+  #section-inside {
+    width: 15rem;
+    height: 26rem;
+    margin-left: 44rem;
+    margin-top: -20rem;
+    transition: all 0.5s;
+    cursor: pointer;
+  }
+  
+  #section-inside:hover {
+    transform: translateY(-20px);
+  }
+  
+  #copertina {
+    width: 100%;
+  }
+  
+  #container-6 {
+    display: flex;
+    margin-top: 15rem;
+  }
+  
+  #section-14 {
+    width: 30%;
+    margin-top: 12rem;
+  }
+  
+  #arpione {
+    width: 100%;
+  }
+  
+  #section-15 {
+    width: 40%;
+    height: 40rem;
+    padding: 6rem;
+  }
+  
+  #balena-2 {
+    margin-top: 0rem;
+    width: 100%;
+  }
+  
+  #section-16 {
+    width: 30%;
+    margin-top: 12rem;
+  }
+  
+  #footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 11.5rem;
+  }
+  
+  #p-footer {
+    font-size: 1.3rem;
+    font-family: DistilleryDisplay;
+    letter-spacing: 0.5rem;
+    font-weight: 400;
+    color: #b6ccd7;
+  }
+  
+  #div-alghe {
+    width: 20%;
+  }
+  
+  #alghe {
+    width: 50%;
+  }
+}
