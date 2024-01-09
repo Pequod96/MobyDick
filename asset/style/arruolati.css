@@ -1,0 +1,477 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: "DistilleryDisplay";
+  src: url(../font/static/DistilleryDisplay.ttf);
+}
+
+@font-face {
+  font-family: "Moby Dick";
+  src: url(../font/static/MobyDIck.ttf);
+}
+
+@font-face {
+  font-family: "Showboat";
+  src: url(../font/static/Showboat-nRyJ.ttf);
+}
+
+@font-face {
+  font-family: "Tangerine";
+  src: url(../font/static/Tangerine-Regular.ttf);
+}
+
+a {
+  text-decoration: none;
+}
+
+::-webkit-scrollbar {
+  width: 0.3rem;
+  border-radius: 1rem;
+}
+
+::-webkit-scrollbar-track {
+  background: #000000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #443ba4;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: linear-gradient(#061a2b 20%, #000000 80%);
+  color: #fff0f8;
+}
+
+/* Menù*/
+.menu-wrap {
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+  z-index: 1;
+}
+
+.menu-wrap .toggler {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 2;
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  opacity: 0;
+}
+
+.menu-wrap .hamburger {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1;
+  width: 60px;
+  height: 60px;
+  padding: 1rem;
+  background: #171a2100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Hamburger Line */
+.menu-wrap .hamburger > div {
+  position: relative;
+  flex: none;
+  width: 100%;
+  height: 2px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s ease;
+}
+
+/* Hamburger Lines - Top & Bottom */
+.menu-wrap .hamburger > div::before,
+.menu-wrap .hamburger > div::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: -10px;
+  width: 100%;
+  height: 2px;
+  background: inherit;
+}
+
+/* Moves Line Down */
+.menu-wrap .hamburger > div::after {
+  top: 10px;
+}
+
+/* Toggler Animation */
+.menu-wrap .toggler:checked + .hamburger > div {
+  transform: rotate(135deg);
+}
+
+/* Turns Lines Into X */
+.menu-wrap .toggler:checked + .hamburger > div:before,
+.menu-wrap .toggler:checked + .hamburger > div:after {
+  top: 0;
+  transform: rotate(90deg);
+}
+
+/* Rotate On Hover When Checked */
+.menu-wrap .toggler:checked:hover + .hamburger > div {
+  transform: rotate(225deg);
+}
+
+/* Show Menu */
+.menu-wrap .toggler:checked ~ .menu {
+  visibility: visible;
+}
+
+.menu-wrap .toggler:checked ~ .menu > div {
+  transform: scale(1);
+  transition-duration: 1.5s;
+}
+
+.menu-wrap .toggler:checked ~ .menu > div > div {
+  opacity: 1;
+  transition: opacity 0.4s ease 0.4s;
+}
+
+.menu-wrap .menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  visibility: hidden;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu-wrap .menu > div {
+  background: #f62a3bb9;
+  border-radius: 50%;
+  width: 200vw;
+  height: 200vw;
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  transform: scale(0);
+  transition: all 0.4s ease;
+}
+
+.menu-wrap .menu > div > div {
+  text-align: center;
+  max-width: 90vw;
+  max-height: 100vh;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.menu-wrap .menu > div > div > ul > li {
+  list-style: none;
+  color: #b6ccd7;
+  font-family: DistilleryDisplay;
+  letter-spacing: 0.5rem;
+  font-weight: 700;
+  font-size: 2.5rem;
+  text-shadow: 5px 5px 5px #171a21;
+  padding: 1rem;
+}
+
+.menu-wrap .menu > div > div > ul > li > a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.4s ease;
+}
+
+.menu-wrap .menu > div > div > ul > li > a:hover {
+  color: #ffb900;
+  transition: 1s;
+}
+
+#container-hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#section-logo {
+  width: 7rem;
+  position: fixed;
+  top: 2rem;
+  left: 2rem;
+  z-index: 1;
+}
+
+#bussola {
+  width: 100%;
+  animation: rotate 15s linear infinite;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(
+      360deg
+    ); /* Ruota di 360 gradi, ma puoi impostare qualsiasi valore desiderato */
+  }
+}
+
+#section-1-arruolati {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 45%;
+  height: 900px;
+  background-image: url(../images/manifesto.png);
+  background-size: cover;
+  padding: 6.5rem;
+  margin-top: 2rem;
+}
+
+#h1-arruolati {
+  font-size: 3rem;
+  font-family: Showboat;
+  letter-spacing: 0.5rem;
+  font-weight: 400;
+  color: #24292c;
+  margin-top: -2rem;
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+#p-arruolati {
+  font-size: 2rem;
+  letter-spacing: 0.1rem;
+  font-family: Tangerine;
+  font-weight: 300;
+  text-shadow: 0.5px 0.5px 2px #000000;
+  text-align: center;
+  color: #202527;
+  margin-bottom: 0rem;
+}
+
+#footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 11.5rem;
+  margin-top: 5rem;
+}
+
+#p-footer {
+  font-size: 1.3rem;
+  font-family: DistilleryDisplay;
+  letter-spacing: 0.5rem;
+  font-weight: 400;
+  color: #b6ccd7;
+}
+
+#div-alghe {
+  width: 20%;
+}
+
+#alghe {
+  width: 50%;
+}
+
+@media only screen and (max-width: 480px) {
+  #container-hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #section-logo {
+    width: 7rem;
+    position: fixed;
+    top: 2rem;
+    left: 2rem;
+    z-index: 1;
+  }
+
+  #bussola {
+    width: 100%;
+    animation: rotate 15s linear infinite;
+  }
+
+  @keyframes rotate {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(
+        360deg
+      ); /* Ruota di 360 gradi, ma puoi impostare qualsiasi valore desiderato */
+    }
+  }
+
+  #section-1-arruolati {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    height: 700px;
+    background-image: url(../images/manifesto.png);
+    background-size: cover;
+    padding: 3.5rem;
+    margin-top: 7rem;
+  }
+
+  #h1-arruolati {
+    font-size: 2.3rem;
+    font-family: Showboat;
+    letter-spacing: 0.5rem;
+    font-weight: 400;
+    color: #24292c;
+    margin-top: -1rem;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+
+  #p-arruolati {
+    font-size: 1.7rem;
+    letter-spacing: 0.1rem;
+    font-family: Tangerine;
+    font-weight: 300;
+    text-shadow: 0.5px 0.5px 2px #000000;
+    text-align: center;
+    color: #202527;
+    margin-bottom: 0rem;
+  }
+
+  #footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 8.5rem;
+    margin-top: 5rem;
+  }
+
+  #p-footer {
+    font-size: 1.3rem;
+    font-family: DistilleryDisplay;
+    letter-spacing: 0.5rem;
+    font-weight: 400;
+    color: #b6ccd7;
+  }
+
+  #div-alghe {
+    width: 30%;
+  }
+
+  #alghe {
+    width: 70%;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  #container-hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #section-logo {
+    width: 7rem;
+    position: fixed;
+    top: 2rem;
+    left: 2rem;
+    z-index: 1;
+  }
+
+  #bussola {
+    width: 100%;
+    animation: rotate 15s linear infinite;
+  }
+
+  @keyframes rotate {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(
+        360deg
+      ); /* Ruota di 360 gradi, ma puoi impostare qualsiasi valore desiderato */
+    }
+  }
+
+  #section-1-arruolati {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 45%;
+    height: 900px;
+    background-image: url(../images/manifesto.png);
+    background-size: cover;
+    padding: 6.5rem;
+    margin-top: 2rem;
+  }
+
+  #h1-arruolati {
+    font-size: 3rem;
+    font-family: Showboat;
+    letter-spacing: 0.5rem;
+    font-weight: 400;
+    color: #24292c;
+    margin-top: -2rem;
+    margin-bottom: 3rem;
+    text-align: center;
+  }
+
+  #p-arruolati {
+    font-size: 2rem;
+    letter-spacing: 0.1rem;
+    font-family: Tangerine;
+    font-weight: 300;
+    text-shadow: 0.5px 0.5px 2px #000000;
+    text-align: center;
+    color: #202527;
+    margin-bottom: 0rem;
+  }
+
+  #footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 11.5rem;
+    margin-top: 5rem;
+  }
+
+  #p-footer {
+    font-size: 1.3rem;
+    font-family: DistilleryDisplay;
+    letter-spacing: 0.5rem;
+    font-weight: 400;
+    color: #b6ccd7;
+  }
+
+  #div-alghe {
+    width: 20%;
+  }
+
+  #alghe {
+    width: 50%;
+  }
+}
